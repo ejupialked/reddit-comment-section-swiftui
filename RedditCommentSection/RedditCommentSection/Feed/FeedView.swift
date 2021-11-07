@@ -20,7 +20,7 @@ struct FeedView: View {
                     ListItem{
                         ForEach(vm.posts){ post in
                             
-                            NavigationLink(destination: PostDetailView(vm: PostVM(post: post))) {
+                            NavigationLink(destination: PostDetailView(vm: PostDetailVM(post: post))) {
                                 PostView(vm: PostVM(post: post))
                             }
 

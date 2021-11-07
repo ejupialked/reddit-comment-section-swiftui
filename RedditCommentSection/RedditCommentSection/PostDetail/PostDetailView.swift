@@ -8,26 +8,35 @@
 import SwiftUI
 
 struct PostDetailView: View {
-    @ObservedObject var vm: PostVM
-
-    var body: some View {
-        ListItem {
-            ForEach(1..<10){ i in
-                if (i == 1){  PostView(vm: vm) } else { EmptyView()}
-                
-                Text("hello")
-                
-            }
+    @ObservedObject var vm: PostDetailVM
     
+    var body: some View {
+        ScrollView {
+            VStack{
+                Divider()
+                PostView(vm: vm.postVm)
+                Divider()
+                if self.vm.loading {
+                    ProgressView().progressViewStyle(.circular)
+                } else {
+                    VStack{
+                        ForEach(vm.comments){ comment in
+                            CommentView(vm: CommentVM(comment: comment)).padding()
+                            Divider()
+                        }
+                    }.listRowInsets(EdgeInsets())
+                }
+            }
         }.listStyle(PlainListStyle())
-        .navigationTitle(Text("Post Detail"))
-        .navigationBarTitleDisplayMode(.inline)
-
+            .navigationTitle(Text("Post Detail"))
+            .navigationBarTitleDisplayMode(.inline)
+            .onAppear{vm.fetchComments(postId: "")}
+        
     }
 }
 
 struct PostDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PostDetailView(vm: PostVM(post: Post(postId: "test", content: "Hello everyone", displayName: "Alked", created: "2021-09-18T11:21:35Z", likes: 3)))
+        PostDetailView(vm: PostDetailVM(post: Post(postId: "test", content: "Hello everyone", displayName: "Alked", created: "2021-09-18T11:21:35Z", likes: 3)))
     }
 }
