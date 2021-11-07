@@ -30,7 +30,7 @@ struct PostView: View {
                 }.padding(.top, 5)
             }
             Spacer()
-        }.padding()
+        }.padding(5)
     }
 }
 
