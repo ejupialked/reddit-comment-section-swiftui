@@ -19,7 +19,11 @@ struct FeedView: View {
                 } else {
                     ListItem{
                         ForEach(vm.posts){ post in
-                            PostView(vm: PostVM(post: post))
+                            
+                            NavigationLink(destination: PostDetailView(vm: PostVM(post: post))) {
+                                PostView(vm: PostVM(post: post))
+                            }
+
                             
                         }
                 

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B4F5D752737F4C400090B17 /* PostDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F5D742737F4C400090B17 /* PostDetailVM.swift */; };
+		7B4F5D772737F4D600090B17 /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F5D762737F4D600090B17 /* PostDetailView.swift */; };
+		7B4F5D792737F80E00090B17 /* comments.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B4F5D782737F80E00090B17 /* comments.json */; };
 		7BA3665D27346B42000577AA /* RedditCommentSectionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA3665C27346B42000577AA /* RedditCommentSectionApp.swift */; };
 		7BA3665F27346B42000577AA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA3665E27346B42000577AA /* ContentView.swift */; };
 		7BA3666127346B43000577AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BA3666027346B43000577AA /* Assets.xcassets */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B4F5D742737F4C400090B17 /* PostDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailVM.swift; sourceTree = "<group>"; };
+		7B4F5D762737F4D600090B17 /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
+		7B4F5D782737F80E00090B17 /* comments.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = comments.json; sourceTree = "<group>"; };
 		7BA3665927346B42000577AA /* RedditCommentSection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditCommentSection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BA3665C27346B42000577AA /* RedditCommentSectionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditCommentSectionApp.swift; sourceTree = "<group>"; };
 		7BA3665E27346B42000577AA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,6 +54,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B4F5D732737F49F00090B17 /* PostDetail */ = {
+			isa = PBXGroup;
+			children = (
+				7B4F5D762737F4D600090B17 /* PostDetailView.swift */,
+				7B4F5D742737F4C400090B17 /* PostDetailVM.swift */,
+			);
+			path = PostDetail;
+			sourceTree = "<group>";
+		};
 		7BA3665027346B42000577AA = {
 			isa = PBXGroup;
 			children = (
@@ -68,10 +83,12 @@
 			isa = PBXGroup;
 			children = (
 				7BA3666E273470F1000577AA /* Utils.swift */,
+				7B4F5D782737F80E00090B17 /* comments.json */,
 				7BA3668127347B00000577AA /* feed2.json */,
 				7BA3667C27347656000577AA /* feed.json */,
 				7BA36674273471C2000577AA /* Feed */,
 				7BA3666A27346F44000577AA /* Post */,
+				7B4F5D732737F49F00090B17 /* PostDetail */,
 				7BA3665C27346B42000577AA /* RedditCommentSectionApp.swift */,
 				7BA3665E27346B42000577AA /* ContentView.swift */,
 				7BA3666027346B43000577AA /* Assets.xcassets */,
@@ -168,6 +185,7 @@
 				7BA3668227347B06000577AA /* feed2.json in Resources */,
 				7BA3667A27347656000577AA /* feed.json in Resources */,
 				7BA3666427346B43000577AA /* Preview Assets.xcassets in Resources */,
+				7B4F5D792737F80E00090B17 /* comments.json in Resources */,
 				7BA3666127346B43000577AA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,8 +198,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BA36676273471D5000577AA /* FeedView.swift in Sources */,
+				7B4F5D772737F4D600090B17 /* PostDetailView.swift in Sources */,
 				7BA3667327347148000577AA /* PostVM.swift in Sources */,
 				7BA3666D27347010000577AA /* Post.swift in Sources */,
+				7B4F5D752737F4C400090B17 /* PostDetailVM.swift in Sources */,
 				7BA3665F27346B42000577AA /* ContentView.swift in Sources */,
 				7BA3665D27346B42000577AA /* RedditCommentSectionApp.swift in Sources */,
 				7BA366712734713A000577AA /* PostView.swift in Sources */,

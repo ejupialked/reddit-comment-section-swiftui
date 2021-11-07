@@ -1,13 +1,17 @@
 [{
     "postId": "12",
     "content": "new post",
-    "displayName": "Apple"
+    "displayName": "Apple",
+    "created":"2020-09-01T15:48:57Z",
+    "likes":19
 }
     ,
     {
         "postId": "14",
         "content": "new post 2",
-        "displayName": "Steve Jobs"
+        "displayName": "Steve Jobs",
+        "created":"2020-09-01T15:48:57Z",
+        "likes":19
     }
         
    
