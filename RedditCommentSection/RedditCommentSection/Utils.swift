@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SwiftUI
+
 
 extension Bundle {
     func decode<T: Codable>(type: T.Type, from file: String) -> T {
@@ -34,5 +36,66 @@ extension Bundle {
         } catch {
             fatalError("Filed to decode \(file) from bundle")
         }
+    }
+}
+
+
+struct NoButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+    }
+}
+
+struct ListItem<Content: View>: View {
+        let content: () -> Content
+    
+        var body: some View {
+                List {
+                    self.content()
+                }
+                .listStyle(PlainListStyle())
+                .buttonStyle(NoButtonStyle())
+            
+        }
+    }
+
+
+
+extension String {
+    func toDate() -> Date {
+        let dateFormatter = ISO8601DateFormatter()
+        return dateFormatter.date(from: self) ?? Date()
+
+    }
+}
+
+extension Date {
+    func timeAgoDisplay() -> String {
+        let secondsAgo = Int(Date().timeIntervalSince(self))
+
+        let minute = 60
+        let hour = 60 * minute
+        let day = 24 * hour
+        let week = 7 * day
+        let month =  4 * week
+        let year =  12 * month
+
+
+        if secondsAgo < 50 {
+            return "just now"
+        } else if secondsAgo < minute {
+            return "\(secondsAgo) second\(secondsAgo == 1 ? "" : "s") ago"
+        } else if secondsAgo < hour {
+            return "\(secondsAgo / minute) minute\(secondsAgo / minute == 1 ? "" : "s") ago"
+        } else if secondsAgo < day {
+            return "\(secondsAgo / hour) hour\(secondsAgo / hour == 1 ? "" : "s") ago"
+        } else if secondsAgo < week {
+            return "\(secondsAgo / day) day\(secondsAgo / day == 1 ? "" : "s") ago"
+        } else if secondsAgo < month{
+            return "\(secondsAgo / week) week\(secondsAgo / week == 1 ? "" : "s") ago"
+        } else if secondsAgo<year{
+            return "\(secondsAgo / month) month\(secondsAgo / month == 1 ? "" : "s")"
+        }
+        return "\(secondsAgo / year) year\(secondsAgo / year == 1 ? "" : "s") ago"
     }
 }

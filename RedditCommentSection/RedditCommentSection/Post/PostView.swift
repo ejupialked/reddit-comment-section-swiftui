@@ -22,6 +22,12 @@ struct PostView: View {
                     Text(vm.post.content)
                     Spacer()
                 }
+                HStack {
+                    Text(vm.post.created.toDate().timeAgoDisplay())
+                    Spacer()
+                    Image(systemName: "heart")
+                    Text(vm.post.likes.description)
+                }.padding(.top, 5)
             }
             Spacer()
         }.padding()
@@ -30,6 +36,6 @@ struct PostView: View {
 
 struct PostView_Previews: PreviewProvider {
     static var previews: some View {
-        PostView(vm: PostVM(post: Post(postid: "test", content: "Hello everyone", displayName: "Alked")))
+        PostView(vm: PostVM(post: Post(postId: "test", content: "Hello everyone", displayName: "Alked", created: "2021-09-18T11:21:35Z", likes: 3)))
     }
 }

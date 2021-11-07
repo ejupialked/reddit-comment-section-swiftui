@@ -17,16 +17,22 @@ struct FeedView: View {
                 if vm.loading {
                     ProgressView().progressViewStyle(.circular)
                 } else {
-                    List(vm.posts){ post in
-                        PostView(vm: PostVM(post: post))
+                    ListItem{
+                        ForEach(vm.posts){ post in
+                            PostView(vm: PostVM(post: post))
+                            
+                        }
+                
                     }.refreshable {
                         vm.refreshFeed()
-                    }
+                    }.listStyle(PlainListStyle())
+                    
                 }
-                  
+                
             }.navigationTitle(Text("Feed"))
-            .onAppear(perform: vm.fetchPosts)
+                .onAppear(perform: vm.fetchPosts)
         }.navigationViewStyle(.automatic)
+        
     }
 }
 

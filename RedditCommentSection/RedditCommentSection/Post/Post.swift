@@ -8,9 +8,11 @@
 import Foundation
 
 struct Post: Codable {
-    var postid: String
+    var postId: String
     var content: String
     var displayName: String
+    var created: String
+    var likes: Int
 }
 
 extension Post: Identifiable {
