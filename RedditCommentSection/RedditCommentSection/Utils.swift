@@ -94,7 +94,7 @@ extension Date {
         } else if secondsAgo < month{
             return "\(secondsAgo / week) week\(secondsAgo / week == 1 ? "" : "s") ago"
         } else if secondsAgo<year{
-            return "\(secondsAgo / month) month\(secondsAgo / month == 1 ? "" : "s")"
+            return "\(secondsAgo / month) month\(secondsAgo / month == 1 ? "" : "s") ago"
         }
         return "\(secondsAgo / year) year\(secondsAgo / year == 1 ? "" : "s") ago"
     }
