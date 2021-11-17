@@ -38,8 +38,12 @@ struct CommentView: View {
                     if self.vm.loading {
                         ProgressView().progressViewStyle(.circular)
                     }else{
-                        Button("Show replies") {
-                            self.vm.fetchReplies(vm: postDetailVM)
+                        if vm.areChildrenShown {
+                            EmptyView()
+                        }else{
+                            Button("Show replies") {
+                                self.vm.fetchReplies(vm: postDetailVM)
+                            }
                         }
                     }
                     Spacer()

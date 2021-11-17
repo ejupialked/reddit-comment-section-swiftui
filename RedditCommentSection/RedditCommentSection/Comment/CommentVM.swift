@@ -17,6 +17,8 @@ class CommentVM: ObservableObject, Identifiable {
 
     @Published var comment: Comment
     @Published public var children: [CommentVM] = []
+    @Published public var areChildrenShown: Bool = false
+
     @Published var loading: Bool = false
     @Published var padding: CGFloat = 0
     
@@ -35,10 +37,9 @@ class CommentVM: ObservableObject, Identifiable {
         addAllChildren(children: replies)
         
         if let index = self.getCommentIndex(from: vm.commentSection, comment: self) {
-            vm.commentSection.insert(contentsOf: self.children, at: index+1)
+            withAnimation{vm.commentSection.insert(contentsOf: self.children, at: index+1)}
         }
-        
-        
+        self.areChildrenShown = true
         self.loading = false
     }
     
