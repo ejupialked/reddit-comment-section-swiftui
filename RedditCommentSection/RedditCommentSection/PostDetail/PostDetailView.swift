@@ -19,10 +19,9 @@ struct PostDetailView: View {
                 if self.vm.loading {
                     ProgressView().progressViewStyle(.circular)
                 } else {
-                    VStack{
-                        ForEach(vm.comments){ comment in
-                            CommentView(vm: CommentVM(comment: comment)).padding()
-                            Divider()
+                    VStack(spacing:0){
+                        ForEach(vm.commentSection, id: \.id){ comment in
+                            CommentView(postDetailVM: vm, vm: comment)
                         }
                     }.listRowInsets(EdgeInsets())
                 }
