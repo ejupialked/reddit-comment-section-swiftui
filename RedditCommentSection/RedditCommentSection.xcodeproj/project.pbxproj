@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B31361E2746DF0300824887 /* replies.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B3136202746DF0300824887 /* replies.json */; };
 		7B4F5D752737F4C400090B17 /* PostDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F5D742737F4C400090B17 /* PostDetailVM.swift */; };
 		7B4F5D772737F4D600090B17 /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F5D762737F4D600090B17 /* PostDetailView.swift */; };
 		7B4F5D792737F80E00090B17 /* comments.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B4F5D782737F80E00090B17 /* comments.json */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B31361F2746DF0300824887 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = en; path = en.lproj/replies.json; sourceTree = "<group>"; };
 		7B4F5D742737F4C400090B17 /* PostDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailVM.swift; sourceTree = "<group>"; };
 		7B4F5D762737F4D600090B17 /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
 		7B4F5D782737F80E00090B17 /* comments.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = comments.json; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			children = (
 				7BA3666E273470F1000577AA /* Utils.swift */,
 				7B4F5D782737F80E00090B17 /* comments.json */,
+				7B3136202746DF0300824887 /* replies.json */,
 				7BA3668127347B00000577AA /* feed2.json */,
 				7BA3667C27347656000577AA /* feed.json */,
 				7BA36674273471C2000577AA /* Feed */,
@@ -199,6 +202,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B31361E2746DF0300824887 /* replies.json in Resources */,
 				7BA3668227347B06000577AA /* feed2.json in Resources */,
 				7BA3667A27347656000577AA /* feed.json in Resources */,
 				7BA3666427346B43000577AA /* Preview Assets.xcassets in Resources */,
@@ -233,6 +237,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		7B3136202746DF0300824887 /* replies.json */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7B31361F2746DF0300824887 /* en */,
+			);
+			name = replies.json;
+			sourceTree = "<group>";
+		};
 		7BA3667C27347656000577AA /* feed.json */ = {
 			isa = PBXVariantGroup;
 			children = (

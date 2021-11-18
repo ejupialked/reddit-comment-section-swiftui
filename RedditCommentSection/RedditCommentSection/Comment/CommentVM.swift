@@ -33,7 +33,7 @@ class CommentVM: ObservableObject, Identifiable {
     func fetchReplies(vm: PostDetailVM) {
         self.loading = true
         //Todo: provide parent id to fetch replies
-        let replies = Bundle.main.decode(type: [Comment].self, from: "comments.json").map{CommentVM(comment: $0)}
+        let replies = Bundle.main.decode(type: [Comment].self, from: "replies.json").map{CommentVM(comment: $0)}
         addAllChildren(children: replies)
         
         if let index = self.getCommentIndex(from: vm.commentSection, comment: self) {

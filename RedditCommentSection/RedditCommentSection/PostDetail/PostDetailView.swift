@@ -12,15 +12,18 @@ struct PostDetailView: View {
     
     var body: some View {
         ScrollView {
-            VStack{
+            VStack(spacing:0){
                 Divider()
-                PostView(vm: vm.postVm)
+                PostView(vm: vm.postVm).padding()
                 Divider()
                 if self.vm.loading {
                     ProgressView().progressViewStyle(.circular)
                 } else {
-                    VStack(spacing:0){
+                    LazyVStack(spacing:0){
                         ForEach(vm.commentSection, id: \.id){ comment in
+                            if comment.padding == 1 { Rectangle().frame(height: 10).foregroundColor(Color.gray.opacity(0.2))
+                                Divider()
+                            }
                             CommentView(postDetailVM: vm, vm: comment)
                         }
                     }.listRowInsets(EdgeInsets())
