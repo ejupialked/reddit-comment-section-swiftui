@@ -27,13 +27,22 @@ struct CommentView: View {
                 HStack {
                     Text(vm.comment.displayName).font(.footnote.bold())
                     Spacer()
-                }
+                    Text(vm.comment.created.toDate().timeAgoDisplay())
+                }.font(.footnote)
                 HStack {
                     Text(vm.comment.content).font(.footnote)
                     Spacer()
                 }
                 HStack {
-                    Text(vm.comment.created.toDate().timeAgoDisplay())
+        
+                        Button(action: {
+                            postDetailVM.reply(currentParentReply: vm)
+                        }){
+                            HStack{
+                                Image(systemName: "arrowshape.turn.up.left")
+                                Text("Reply")
+                            }.font(.footnote)
+                        }
                     Spacer()
                     if self.vm.loading {
                         ProgressView().progressViewStyle(.circular)
@@ -60,6 +69,6 @@ struct CommentView: View {
 struct CommentView_Previews: PreviewProvider {
     static var vm = PostDetailVM(post: Post(postId: "", content: "Testy test my post is amazing", displayName: "My beautiful display name", created: "2021-09-18T11:21:35Z", likes: 2))
     static var previews: some View {
-        CommentView(postDetailVM: vm, vm: CommentVM(comment: Comment(commentId: "dd", content: "Hello everyon", displayName: "myName", created: "2021-10-31T03:31:52Z", likes: 3)))
+        CommentView(postDetailVM: vm, vm: CommentVM(comment: Comment(commentId: "dd", parentId: "test", content: "Hello everyon", displayName: "myName", created: "2021-10-31T03:31:52Z", likes: 3)))
     }
 }

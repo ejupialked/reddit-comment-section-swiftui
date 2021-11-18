@@ -9,6 +9,7 @@ import Foundation
 
 struct Comment: Codable {
     var commentId: String
+    var parentId: String
     var content: String
     var displayName: String
     var created: String

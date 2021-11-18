@@ -12,13 +12,8 @@ struct PostDetailView: View {
     @State var comment: String = ""
     
     var body: some View {
-        
-        
-        
         VStack(spacing: 0){
             ScrollView {
-                
-                
                 Divider()
                 PostView(vm: vm.postVm).padding()
                 Divider()
@@ -34,29 +29,41 @@ struct PostDetailView: View {
                         }
                     }.listRowInsets(EdgeInsets())
                 }
-                
-                
-                
-                
-                
             }.listStyle(PlainListStyle())
             
-            
-            HStack {
-                ZStack{
-                    TextEditor(text: $comment)
-                    Text(comment).opacity(0).padding()
-                }.shadow(radius: 1)
-                    .buttonBorderShape(ButtonBorderShape.capsule)
-                    .cornerRadius(10)
-                    .ignoresSafeArea(.keyboard,edges: .bottom)
-                    .shadow(radius: 2)
-                    .frame(height: 60)
-                Button("Send"){
-                    self.vm.commentSection[0].fetchReplies(vm: vm)
+            VStack(spacing: 0){
+                Divider()
+                if vm.currentParentReply != nil {
+                    HStack{
+                        Text("Replying to: " + vm.currentParentReply!.comment.displayName)
+                        Spacer()
+                        Button(action: {
+                            withAnimation{self.vm.currentParentReply = nil}
+                        }){
+                            Image(systemName: "xmark.circle.fill")
+                        }
+                    }.padding(.horizontal, 5)
+                        .padding()
+                        .font(.footnote)
                 }
-            }.padding()
-                .background(Color.primary.opacity(0.1))
+                HStack {
+                    ZStack{
+                        TextEditor(text: $comment)
+                        Text(comment).opacity(0).padding()
+                    }.shadow(radius: 1)
+                        .buttonBorderShape(ButtonBorderShape.capsule)
+                        .cornerRadius(10)
+                        .ignoresSafeArea(.keyboard,edges: .bottom)
+                        .shadow(radius: 2)
+                        .frame(height: 60)
+                    Button("Send"){
+                        self.vm.sendReply(commentText: comment)
+                        self.comment = ""
+                    }
+                }.padding()
+                
+            }.background(Color.primary.opacity(0.1))
+            
         }
         .navigationTitle(Text("Post Detail"))
         .navigationBarTitleDisplayMode(.inline)
