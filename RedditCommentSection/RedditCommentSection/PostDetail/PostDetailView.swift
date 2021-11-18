@@ -9,10 +9,16 @@ import SwiftUI
 
 struct PostDetailView: View {
     @ObservedObject var vm: PostDetailVM
+    @State var comment: String = ""
     
     var body: some View {
-        ScrollView {
-            VStack(spacing:0){
+        
+        
+        
+        VStack(spacing: 0){
+            ScrollView {
+                
+                
                 Divider()
                 PostView(vm: vm.postVm).padding()
                 Divider()
@@ -28,12 +34,33 @@ struct PostDetailView: View {
                         }
                     }.listRowInsets(EdgeInsets())
                 }
-            }
-        }.listStyle(PlainListStyle())
-            .navigationTitle(Text("Post Detail"))
-            .navigationBarTitleDisplayMode(.inline)
-            .onAppear{vm.fetchComments(postId: "")}
-        
+                
+                
+                
+                
+                
+            }.listStyle(PlainListStyle())
+            
+            
+            HStack {
+                ZStack{
+                    TextEditor(text: $comment)
+                    Text(comment).opacity(0).padding()
+                }.shadow(radius: 1)
+                    .buttonBorderShape(ButtonBorderShape.capsule)
+                    .cornerRadius(10)
+                    .ignoresSafeArea(.keyboard,edges: .bottom)
+                    .shadow(radius: 2)
+                    .frame(height: 60)
+                Button("Send"){
+                    self.vm.commentSection[0].fetchReplies(vm: vm)
+                }
+            }.padding()
+                .background(Color.primary.opacity(0.1))
+        }
+        .navigationTitle(Text("Post Detail"))
+        .navigationBarTitleDisplayMode(.inline)
+        .onAppear{vm.fetchComments(postId: "")}
     }
 }
 

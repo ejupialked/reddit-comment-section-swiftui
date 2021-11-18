@@ -160,6 +160,8 @@
 			dependencies = (
 			);
 			name = RedditCommentSection;
+			packageProductDependencies = (
+			);
 			productName = RedditCommentSection;
 			productReference = 7BA3665927346B42000577AA /* RedditCommentSection.app */;
 			productType = "com.apple.product-type.application";
@@ -188,6 +190,8 @@
 				Base,
 			);
 			mainGroup = 7BA3665027346B42000577AA;
+			packageReferences = (
+			);
 			productRefGroup = 7BA3665A27346B42000577AA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
